@@ -13,7 +13,7 @@ const CardSvg = () => (
 const AddUser = () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="18" viewBox="0 0 16 16">
         <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
-        <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5" />
+        <path fillRule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5" />
     </svg>
 )
 
@@ -25,7 +25,7 @@ const Boosts = () => (
 
 const Activitis = () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="18" viewBox="0 0 16 16">
-        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+        <path fillRule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
     </svg>
 )
 const Money = () => (
@@ -41,39 +41,49 @@ const Help = () => (
     </svg>
 )
 
+const RightArrow = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" viewBox="0 0 16 16">
+        <path fillRule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
+    </svg>
+)
+const Deposit = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" viewBox="0 0 16 16">
+        <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5" />
+        <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z" />
+    </svg>
+)
+
 
 const Icon = ({ svg, label, title }) => (
     <>
-        <div className="flex items-start space-x-3 group cursor-pointer">
-            <div className="text-gray-500 group-hover:text-blue-600 bg-gray-300 p-4 rounded-lg">
-
+        <div className="flex sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-3 group cursor-pointer">
+            <div className="text-gray-500 group-hover:text-blue-600 bg-gray-300 p-4 rounded-lg flex-shrink-0">
                 {svg}
-
             </div>
-            <div className='flex flex-col'>
+            <div className="flex ps-3 flex-col">
                 <label className="font-medium text-left text-lg text-gray-900 group-hover:text-blue-600">{label}</label>
-                <p className="text-sm text-gray-600">{title}</p>
+                <p className="text-sm text-gray-600 text-left">{title}</p>
             </div>
         </div>
+
 
     </>
 
 )
 
 const Sidebar = () => (
-    <aside className="w-40 sm:w-100 p-4">
+    <aside className="w-full sm:w-40 md:w-60 lg:w-72 p-4 rounded-lg">
         <h2 className="text-xl text-left font-semibold mb-6">Quick actions</h2>
         <nav className="space-y-4">
-
             <Icon svg={<UserSvg />} label="Debit Card" title="Mastercard ending in 1234" />
-            <Icon svg={<CardSvg />} label="Invite friends" title="Get $4 when you sign up  " />
+            <Icon svg={<CardSvg />} label="Invite friends" title="Get $4 when you sign up" />
             <Icon svg={<Boosts />} label="Boosts" title="Get early access to direct deposit" />
-            <Icon svg={<Activitis />} label="Activity" title="See your recent transaction" />
+            <Icon svg={<Activitis />} label="Activity" title="See your recent transactions" />
             <Icon svg={<Money />} label="Cash" title="Add cash to your balance" />
             <Icon svg={<Help />} label="Help" title="Support available 24/7" />
-
         </nav>
     </aside>
+
 )
 const userName = "Adam";
 
@@ -82,55 +92,68 @@ const Activity = () => {
     return (
         <>
             <main className="pt-8 pb-8">
-                <div className="max-w-9xl mx-auto px-0 sm:px-6 lg:px-8">
+                <div className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div>
-                        <div className="flex justify-between items-baseline mb-8 flex-col sm:flex-col">
-                            <div className="w-full flex gap-4 mb-10">
-                                <Sidebar />
-                                <div className='w-full'>
-                                    <div className="w-full">
-                                        <h1 className="text-4xl text-left mb-8 font-bold text-gray-900 text-rowrap">Good Evening, {userName}</h1>
+                        <div className="flex flex-col md:flex-row gap-6 mb-8">
+
+                            {/* Sidebar */}
+                            <Sidebar className="w-full md:w-1/4" />
+
+                            {/* Main content */}
+                            <div className="w-full md:w-3/4 space-y-8">
+
+                                <h1 className="text-4xl font-bold text-gray-900 text-left break-words">
+                                    Good Evening, {userName}
+                                </h1>
+
+                                {/* Spendable & Total stats grid */}
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+                                    <div className="bg-white border border-slate-200 rounded-xl p-5 shadow-sm">
+                                        <p className="text-lg font-semibold text-gray-900 mb-2 text-left">Spendable</p>
+                                        <h2 className="text-2xl font-bold text-gray-900 mb-2 text-left">$2,500</h2>
+                                        <h4 className="text-lg font-semibold text-orange-400 text-left">-15%</h4>
                                     </div>
-                                    <div className='w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4 mb-10'>
 
-                                        <div class="bg-white border-1 border-slate-200 rounded-xl p-5 shadow-sm">
-                                            <p class="text-sm text-start font-semibold text-gray-900 mb-2 text-lg">Spendable</p>
-                                            <h2 class="text-2xl text-start font-bold text-gray-900 mb-2">$2,500</h2>
-                                            <h4 class="text-lg text-start font-semibold text-orange-400">-15%</h4>
-                                        </div>
-
-                                        <div class="bg-white border-1 border-slate-200 rounded-xl p-5 shadow-sm">
-                                            <p class="text-sm text-start font-semibold text-gray-900 mb-2 text-lg">Total</p>
-                                            <h2 class="text-2xl text-start font-bold text-gray-900 mb-2">$2,500</h2>
-                                            <h4 class="text-lg text-start font-semibold text-orange-400">-15%</h4>
-                                        </div>
-
+                                    <div className="bg-white border border-slate-200 rounded-xl p-5 shadow-sm">
+                                        <p className="text-lg font-semibold text-gray-900 mb-2 text-left">Total</p>
+                                        <h2 className="text-2xl font-bold text-gray-900 mb-2 text-left">$2,500</h2>
+                                        <h4 className="text-lg font-semibold text-orange-400 text-left">-15%</h4>
                                     </div>
-                                    <div className='bg-white flex justify-between items-center border-1 border-slate-200 rounded-xl p-6 shadow-sm'>
-                                        <label className='font-bold text-lg'>You'er eligible for a ${10} referral bonus</label>
-                                        <button className='bg-blue-500 rounded-lg px-4 py-2 font-semibold text-white'>Learn More</button>
-
-                                    </div>
-                                    <aside className="w-full  p-4">
-                                        <h2 className="text-xl text-left font-semibold mb-6">Recent Activiy</h2>
-                                        <nav className="space-y-4">
-                                            <div className="flex justify-between items-center">
-                                                <Icon svg={<UserSvg />} label="Transfer" title="Jan 23,2023 &#xF309; 2:41 PM" />
-                                                <label htmlFor="Price">$250</label>
-                                            </div>
-
-                                        </nav>
-                                    </aside>
 
                                 </div>
 
+                                {/* Referral bonus */}
+                                <div className="bg-white flex flex-col sm:flex-row justify-between items-center border border-slate-200 rounded-xl p-6 shadow-sm gap-4">
+                                    <label className="font-bold text-lg text-center sm:text-left">
+                                        You're eligible for a ${10} referral bonus
+                                    </label>
+                                    <button className="bg-blue-500 rounded-lg px-6 py-2 font-semibold text-white hover:bg-blue-600 transition">
+                                        Learn More
+                                    </button>
+                                </div>
+
+                                {/* Recent Activity */}
+                                <aside className="w-full p-4">
+                                    <h2 className="text-xl font-semibold mb-6 text-left">Recent Activity</h2>
+                                    <nav className="space-y-4">
+                                        <div className="flex justify-between items-center">
+                                            <Icon svg={<RightArrow />} label="Transfer" title="Jan 23, 2023 | 2:41 PM" />
+                                            <label>$250</label>
+                                        </div>
+                                        <div className="flex justify-between items-center">
+                                            <Icon svg={<Deposit />} label="Deposit" title="Jan 23, 2023 | 2:41 PM" />
+                                            <label>$250</label>
+                                        </div>
+                                    </nav>
+                                </aside>
+
                             </div>
-
-
                         </div>
                     </div>
                 </div>
             </main>
+
         </>
     )
 }
