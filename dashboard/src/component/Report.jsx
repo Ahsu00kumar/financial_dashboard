@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { BarChart } from '@mui/x-charts/BarChart';
 
-const data = ['Home', 'Food & Dining', 'Auto & Transport', 'Health & Fitness', 'Shopping', 'Travel', 'Entertainment'];
+const categories = ['Home', 'Food & Dining', 'Auto & Transport', 'Health & Fitness', 'Shopping', 'Travel', 'Entertainment'];
 const values = [10, 20, 11, 13, 12, 2, 3];
 
 const Report = () => {
@@ -22,20 +22,22 @@ const Report = () => {
 
                             <div className="p-6 bg-white rounded-xl border border-gray-200 shadow w-full">
                                 <BarChart
-                                    className='w-full'
-                                    yAxis={[{ data: data}]}
-                                    series={[{
-                                        data: values,
-                                        color: '#e9e9e9', 
-                                        strokeWidth: 2,
-                                        strokeColor: '#4f46e5',
-                                        label: false,
-
-                                    }]}
+                                    yAxis={[{ data: categories }]}
+                                    series={[
+                                        {
+                                            data: values,
+                                            color: '#4f46e5',
+                                            highlightScope: { item: 'series' },
+                                            itemStyle: {
+                                                stroke: '#1e40af',
+                                                strokeWidth: 2,
+                                                borderRadius: 4,
+                                            },
+                                        },
+                                    ]}
+                                    layout="horizontal"
                                     height={400}
-                                    layout='horizontal'
                                     grid={{ vertical: false }}
-
                                 />
                             </div>
 
